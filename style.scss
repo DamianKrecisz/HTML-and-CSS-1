@@ -1,0 +1,416 @@
+//colors
+$color_sepia_black_75_approx: rgba(43, 1, 0, 0.75);
+$white: #ffffff;
+$color_silver_approx: #c6c6c6;
+$color_concrete_approx: #f3f3f3;
+$gray: grey;
+$color_cod_gray_40_approx: rgba(26, 26, 26, 0.4);
+$color_alabaster_approx: #f8f8f8;
+$color_atlantis_approx: #93d02b;
+$color_silver_chalice_approx: #afafaf;
+$black_14: rgba(0, 0, 0, 0.14);
+$wild_sand: #f4f4f4;
+$color_la_palma_approx: #3b9a00;
+$color_olivine_approx: #90ca6d;
+$color_sprout_approx: #bcdb97;
+$color_stiletto_approx: #a2202a;
+$color_carnation_approx: #f4495b;
+$color_brick_red_approx: #c73f4d;
+
+@font-face {
+    font-family: Titillium;
+    src: url(TitilliumWeb.ttf);
+}
+
+//fonts
+$font_0: Titillium;
+$font_1: sans-serif;
+
+
+//urls
+$url_0: url(images/background.jpg);
+$url_1: url(images/user-icon.png);
+$url_2: url(images/lock-icon.png);
+$url_3: url(images/envelope-icon.png);
+$url_4: url(images/phone-icon.png);
+$url_5: url(images/maps-icon.png);
+
+//@extend-elements
+%extend_1 {
+    height: 30px;
+    border: 1px solid $color_silver_approx;
+    background-color: $color_concrete_approx;
+    border-radius: 4px;
+    padding-left: 20%;
+    background-repeat: no-repeat;
+    margin: 5% 5% 0% 5%
+}
+
+$breakpoints: ('small': (min-width: 767px),
+    'medium': (min-width: 992px),
+    'large': (min-width: 1200px)) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+
+    // If the key doesn't exist in the map
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        +"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+body {
+    background-image: $url_0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: $font_0, $font_1;
+    font-size: 1rem;
+}
+
+button {
+    height: 2.5em;
+}
+
+.top__img {
+    margin-top: 5%;
+    text-align: center;
+
+    img {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+.main {
+    max-width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+    justify-content: space-between;
+
+    @include respond-to('large') {
+        max-width: 60vw;
+    }
+
+    @media only screen and (max-width: 800px) {
+        justify-content: center;
+    }
+}
+
+.form__label {
+    text-shadow: 1px 2px 5px $color_sepia_black_75_approx;
+    color: $white;
+    font-size: 2rem !important;
+    display: flex;
+    justify-content: center;
+    margin: 3vh 0;
+}
+
+input {
+    &[type=text] {
+        @extend %extend_1;
+        background-image: $url_1;
+        background-position: left;
+        background-position-x: 20px;
+    }
+
+    &[type=password] {
+        @extend %extend_1;
+        background-image: $url_2;
+        background-position: left;
+        background-position-x: 20px;
+    }
+
+    &[type=email] {
+        @extend %extend_1;
+        background-image: $url_3;
+        background-position: left;
+        background-position-x: 20px;
+    }
+
+    &[type=tel] {
+        @extend %extend_1;
+        background-image: $url_4;
+        background-position: left;
+        background-position-x: 24px;
+    }
+
+    &[type=checkbox] {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $color_silver_approx;
+        background-color: $color_alabaster_approx;
+        background-color: $color_atlantis_approx;
+
+        margin: 5% 5% 4.45% 5%
+    }
+
+    &:hover {
+        border: 1px solid $gray;
+        transition: 0.3s;
+    }
+}
+
+textarea {
+    width: auto;
+    height: 200px;
+    border: 1px solid $color_silver_approx;
+    background-color: $wild_sand;
+    border-radius: 4px;
+    font-family: $font_1;
+    margin: 5% 5% 0% 5%;
+}
+
+select {
+    height: 35px !important;
+    border: 1px solid $color_silver_approx;
+    background-color: $color_concrete_approx;
+    border-radius: 4px;
+    background-image: $url_5;
+    background-repeat: no-repeat;
+    padding-left: 70px;
+    background-position: 25px;
+    margin: 5% 5% 0% 5%;
+
+    &:hover {
+        border: 1px solid $gray;
+        transition: 0.3s;
+    }
+}
+
+form {
+    box-shadow: 0 0 0 12px $black_14;
+    background-color: $wild_sand;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    width: 360px;
+
+    &:hover {
+        box-shadow: 0 0 0 12px $color_cod_gray_40_approx;
+        transition: 0.3s;
+    }
+}
+
+.label__checkbox {
+    color: $color_silver_chalice_approx;
+    font-family: $font_0, $font_1;
+
+}
+
+.left__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.right__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// OGÓLNE //
+
+.register__form {
+
+    &-checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.send__form {
+    &-checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+}
+
+.sendEmail__form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#signIn__checkbox {
+    margin: 0%;
+    margin-right: 10%;
+}
+
+.signIn__form {
+    & form {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+    &-remember {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 5%;
+        width: 100%;
+        margin-right: 5%;
+    }
+
+    &-checkbox {
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+
+.recover__ {
+
+    &form-button {
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 4px;
+    }
+
+    &form {
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            color: $white;
+            border-radius: 4px;
+        }
+    }
+}
+
+.subscribe__ {
+    &form {
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            color: $white;
+            border-radius: 4px;
+        }
+        @media only screen and (max-width: 800px) {
+            margin-bottom:3vh;
+        }
+    }
+
+    &form-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.button- {
+    &subscribe {
+        border: 1px solid $color_la_palma_approx;
+        background-color: $color_atlantis_approx;
+        width: 50%;
+        margin: 5% 2.5% 5% 5%;
+
+        &:hover {
+            background-color: $color_atlantis_approx;
+            transition: 0.2s;
+        }
+    }
+
+    &nothanks {
+        border: 1px solid $color_stiletto_approx;
+        background-color: $color_carnation_approx;
+        width: 50%;
+        margin: 5% 5% 5% 2.5%;
+
+        &:hover {
+            background-color: $color_brick_red_approx;
+            transition: 0.2s;
+        }
+    }
+
+    &signin {
+        color: $white;
+        border: 1px solid $color_la_palma_approx;
+        background-color: $color_atlantis_approx;
+        border-radius: 4px;
+        margin: 5%;
+        width: 100%;
+
+        &:hover {
+            background-color: $color_atlantis_approx;
+            transition: 0.2s;
+        }
+    }
+
+    &send {
+        border: 1px solid $color_la_palma_approx;
+        background-color: $color_atlantis_approx;
+        width: 50%;
+        margin: 5% 2.5% 5% 5%;
+
+        &:hover {
+            background-color: $color_atlantis_approx;
+            transition: 0.2s;
+        }
+    }
+
+    &done {
+        border: 1px solid $color_olivine_approx;
+        background-color: $color_sprout_approx;
+        width: 50%;
+        margin: 5% 5% 5% 2.5%;
+
+    }
+
+    &signup {
+        color: $white;
+        border: 1px solid $color_la_palma_approx;
+        background-color: $color_atlantis_approx;
+        border-radius: 4px;
+        margin: 0.5% 5% 5% 5%;
+
+        &:hover {
+            background-color: $color_atlantis_approx;
+            transition: 0.2s;
+        }
+    }
+
+    &sendemail {
+        color: $white;
+        border: 1px solid $color_la_palma_approx;
+        background-color: $color_atlantis_approx;
+        border-radius: 4px;
+        margin: 0.5% 5% 5% 5%;
+
+        &:hover {
+            background-color: $color_atlantis_approx;
+            transition: 0.2s;
+        }
+    }
+}

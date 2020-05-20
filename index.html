@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MasteralbCreative</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/81ff92be03.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <section class="top__img">
+        <img src="images/logo-top.png" alt="">
+    </section>
+
+    <section class="main">
+
+        <section class="left__column">
+
+            <section class="register__form">
+                <h1 class="form__label">Register</h1>
+                <form action="submit" id="register">
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm Password" required>
+                    <input type="email" placeholder="Email" required>
+                    <select name="cities" placeholder="Your location">
+                        <option value="Cracow">Cracow</option>
+                        <option value="Warsaw">Warsaw</option>
+                    </select>
+                    <div class="register__form-checkbox">
+                        <input type="checkbox" id="register__checkbox" required>
+                        <label for="register__checkbox" class="label__checkbox">I have read and accept the terms of
+                            use.</label>
+                    </div>
+                    <button class="button-signup">Sign Up</button>
+                </form>
+            </section>
+
+            <section class="sendEmail__form">
+                <h1 class="form__label">Send email</h1>
+                <form action="submit" id="send">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Type your message ..." required></textarea>
+                    <div class="send__form-checkbox">
+                        <input type="checkbox" id="email__checkbox">
+                        <label for="email__checkbox" class="label__checkbox">Send a copy to my Email</label>
+                    </div>
+
+                    <button class="button-sendemail">Send Email</button>
+                </form>
+            </section>
+
+        </section>
+
+        <section class="right__column">
+
+            <section class="signIn__form">
+                <h1 class="form__label">Sign In</h1>
+                <form action="submit" id="signIn">
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <div class="signIn__form-checkbox">
+                        <div class="signIn__form-remember">
+                            <input type="checkbox" id="signIn__checkbox" required>
+                            <label for="signIn__checkbox" class="label__checkbox">Remember me</label>
+                        </div>
+                        <button class="button-signin">Sign In</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="recover__form">
+                <h1 class="form__label">Recover</h1>
+                <form action="submit" id="recover">
+                    <input type="email" placeholder="Enter your Email" required>
+                    <input type="tel" placeholder="Enter your Phone number" required>
+                    <div class="recover__form-button">
+                        <button class="button-send">Send</button>
+                        <button class="button-done">Done</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="subscribe__form">
+                <h1 class="form__label">Subscribe</h1>
+                <form action="submit" id="subscribe">
+                    <input type="email" placeholder="Enter your Email" required>
+                    <div class="subscribe__form-button">
+                        <button class="button-subscribe">Subscribe</button>
+                        <button class="button-nothanks">No, Thanks</button>
+                    </div>
+                </form>
+            </section>
+
+            <img src="images/logo-bottom.png" alt="">
+
+        </section>
+
+    </section>
+
+
+    <script src="script.js" async defer></script>
+</body>
+
+</html>
